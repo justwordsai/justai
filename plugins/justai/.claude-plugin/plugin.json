@@ -1,0 +1,21 @@
+{
+  "name": "justai",
+  "version": "0.4.0",
+  "description": "Marketer-facing plugin for campaign planning, deployment, stored test authoring, content review, and run analysis through the JustAI Platform.",
+  "author": {
+    "name": "JustAI",
+    "email": "support@justwords.ai"
+  },
+  "homepage": "https://www.getjust.ai/",
+  "repository": "https://github.com/justwordsai/justai",
+  "license": "BUSL-1.1",
+  "keywords": [
+    "justai",
+    "platform",
+    "mcp",
+    "marketing",
+    "campaign-scripts"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

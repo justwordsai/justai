@@ -1,0 +1,34 @@
+{
+  "name": "justai",
+  "version": "0.4.0",
+  "description": "Marketer-facing plugin for campaign planning, deployment, stored test authoring, content review, and run analysis through the JustAI Platform.",
+  "author": {
+    "name": "JustAI",
+    "email": "support@justwords.ai"
+  },
+  "homepage": "https://www.getjust.ai/",
+  "repository": "https://github.com/justwordsai/justai",
+  "license": "BUSL-1.1",
+  "keywords": ["justai", "platform", "mcp", "marketing", "campaign-scripts"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "JustAI",
+    "shortDescription": "Campaign planning, deployment, and stored test workflows.",
+    "longDescription": "Helps marketers research audiences, design ref-first campaign sequences, deploy scripts with companion stored tests, review content quality, analyze run history, and manage campaign lifecycle on the JustAI Platform.",
+    "developerName": "JustAI",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Read", "Write"],
+    "websiteURL": "https://docs.justwords.ai/",
+    "defaultPrompt": [
+      "Create a win-back campaign for dormant silver users, deploy it as a draft script, and test it for one representative user.",
+      "Update my onboarding campaign and refresh its stored unit tests in the same change before you run them.",
+      "Design a multi-touch onboarding sequence with email and push for new signups, then show which steps fit the current runtime.",
+      "Analyze my silver-tier audience and recommend the best campaign approach.",
+      "Review the copy quality of my active campaign scripts before I activate them.",
+      "Show me a performance report on the last 10 runs of my upsell campaign.",
+      "Build a competitive brief against [competitor] to inform our next campaign messaging."
+    ],
+    "brandColor": "#2563EB"
+  }
+}

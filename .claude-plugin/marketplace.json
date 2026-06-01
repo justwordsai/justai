@@ -1,0 +1,25 @@
+{
+  "name": "justai",
+  "description": "JustAI Claude plugin marketplace.",
+  "owner": {
+    "name": "JustAI",
+    "email": "support@justwords.ai"
+  },
+  "plugins": [
+    {
+      "name": "justai",
+      "source": "./plugins/justai",
+      "description": "Campaign planning, deployment, stored test authoring, content review, and run analysis through the JustAI Platform.",
+      "version": "0.4.0",
+      "category": "Productivity",
+      "tags": ["marketing", "campaigns", "mcp", "platform"],
+      "homepage": "https://www.getjust.ai/",
+      "repository": "https://github.com/justwordsai/justai",
+      "license": "BUSL-1.1",
+      "author": {
+        "name": "JustAI",
+        "email": "support@justwords.ai"
+      }
+    }
+  ]
+}
