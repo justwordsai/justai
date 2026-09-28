@@ -1,0 +1,34 @@
+{
+  "name": "justai",
+  "version": "0.4.2",
+  "description": "Marketer-facing plugin for planning, building, validating, reviewing, and understanding journeys through the JustAI Platform.",
+  "author": {
+    "name": "JustAI",
+    "email": "support@justwords.ai"
+  },
+  "homepage": "https://www.getjust.ai/",
+  "repository": "https://github.com/justwordsai/justai",
+  "license": "BUSL-1.1",
+  "keywords": ["justai", "platform", "mcp", "marketing", "journeys"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "JustAI",
+    "shortDescription": "Campaign planning and editable journey workflows.",
+    "longDescription": "Helps marketers research audiences, design campaign sequences, build and validate editable journeys, review content quality, and prepare lifecycle changes on the JustAI Platform.",
+    "developerName": "JustAI",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Read", "Write"],
+    "websiteURL": "https://docs.justwords.ai/",
+    "defaultPrompt": [
+      "Create a win-back journey for dormant silver users, validate it, and show me its diagram.",
+      "Update my onboarding journey, keep unrelated steps unchanged, and re-check readiness.",
+      "Design a multi-touch onboarding sequence with email and push for new signups, then show which steps fit the current runtime.",
+      "Analyze my silver-tier audience and recommend the best campaign approach.",
+      "Review the copy quality of my active journeys before I make a lifecycle change.",
+      "Summarize the configuration, readiness, and risks of my upsell journey.",
+      "Build a competitive brief against [competitor] to inform our next campaign messaging."
+    ],
+    "brandColor": "#2563EB"
+  }
+}

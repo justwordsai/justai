@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "justai-platform": {
+      "type": "http",
+      "url": "https://platform.justwords.ai/mcp",
+      "bearer_token_env_var": "JUSTAI_PLATFORM_API_KEY",
+      "headers": {
+        "Authorization": "Bearer ${JUSTAI_PLATFORM_API_KEY}"
+      },
+      "note": "Hosted JustAI Platform MCP endpoint. Create an org-scoped platform API key in the hosted UI and expose it as JUSTAI_PLATFORM_API_KEY before launching Codex."
+    }
+  }
+}

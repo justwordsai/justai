@@ -1,0 +1,20 @@
+{
+  "name": "justai",
+  "interface": {
+    "displayName": "JustAI"
+  },
+  "plugins": [
+    {
+      "name": "justai",
+      "source": {
+        "source": "local",
+        "path": "./plugins/justai"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
