@@ -1,0 +1,25 @@
+{
+  "name": "justai",
+  "description": "JustAI Claude plugin marketplace.",
+  "owner": {
+    "name": "JustAI",
+    "email": "support@justwords.ai"
+  },
+  "plugins": [
+    {
+      "name": "justai",
+      "source": "./plugins/justai",
+      "description": "Campaign planning, journey and email building, readiness checks, content review, and journey reports in JustAI. Publishing and turning journeys on stay with a person.",
+      "version": "0.5.5",
+      "category": "Productivity",
+      "tags": ["marketing", "campaigns", "mcp", "platform"],
+      "homepage": "https://www.getjust.ai/",
+      "repository": "https://github.com/justwordsai/justai",
+      "license": "BUSL-1.1",
+      "author": {
+        "name": "JustAI",
+        "email": "support@justwords.ai"
+      }
+    }
+  ]
+}

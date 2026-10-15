@@ -1,0 +1,113 @@
+{
+  "name": "justai",
+  "version": "0.5.5",
+  "description": "Marketer-facing plugin for planning, building, validating, reviewing, and understanding journeys through the JustAI Platform.",
+  "author": {
+    "name": "JustAI",
+    "email": "support@justwords.ai"
+  },
+  "homepage": "https://www.getjust.ai/",
+  "repository": "https://github.com/justwordsai/justai",
+  "license": "BUSL-1.1",
+  "keywords": [
+    "justai",
+    "platform",
+    "mcp",
+    "marketing",
+    "journeys"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "JustAI",
+    "shortDescription": "Plan and build email journeys",
+    "longDescription": "Helps marketers research audiences, design campaign sequences, build and validate journeys and their emails, review content quality, and report on journeys in JustAI.",
+    "developerName": "JustAI",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://docs.justwords.ai/",
+    "defaultPrompt": [
+      "Create a win-back journey for dormant silver users, validate it, and show me its diagram.",
+      "Analyze my silver-tier audience and recommend the best campaign approach.",
+      "Review the emails in my onboarding journey against our brand guidelines before I publish its draft."
+    ],
+    "brandColor": "#2563EB",
+    "supportURL": "https://docs.justwords.ai/api/platform-plugin/#support",
+    "privacyPolicyURL": "https://www.getjust.ai/privacy-policy",
+    "termsOfServiceURL": "https://docs.justwords.ai/resources/terms-of-service/",
+    "composerIcon": "./assets/logo.png",
+    "logo": "./assets/logo.png"
+  },
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "commerce": false,
+        "commerce_description": "Does not sell products or process payments.",
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Create a draft with two frozen email messages",
+              "prompt": "Create a two-email draft journey named QA welcome using the QA Welcome library email and QA delivery. Wait one day between emails. Validate it and show its diagram; do not publish.",
+              "tools_triggered": "list_journey_step_types, list_delivery_profiles, list_emails, get_email, create_journey, use_email_in_message, update_journey, validate_journey, get_journey_readiness, get_journey_diagram",
+              "expected_behavior": "Create an off journey with two distinct minted message ids, a one-day wait, and QA delivery. Report its id, version, and readiness blockers. Do not publish."
+            },
+            {
+              "description": "Edit one branch while preserving live and sibling content",
+              "prompt": "In QA branch review, change only the VIP branch email headline to Welcome back and rename that step VIP welcome. Preserve everything else and check readiness; do not publish.",
+              "tools_triggered": "list_journeys, get_journey, get_message, get_email, patch_email, edit_email_html, edit_email_blocks, use_email_in_message, update_journey, rename_journey_step, get_journey_readiness, get_journey_diagram",
+              "expected_behavior": "Use the applicable email editing tool, mint a new message for that step, and rename its label. Preserve the sibling branch and previous frozen message. Save only the draft; the live version keeps running."
+            },
+            {
+              "description": "Publish only after a reviewed diff and confirmation",
+              "prompt": "Publish the QA branch review draft.",
+              "tools_triggered": "get_journey, get_journey_readiness, get_journey_diagram, publish_journey",
+              "expected_behavior": "Show the draft-versus-live diff and readiness result, then wait for explicit confirmation. Call publish_journey only after a clear yes, using the reviewed draft version."
+            },
+            {
+              "description": "Preview an aggregate audience and confirm before saving",
+              "prompt": "How many people have tier vip? Save that audience as QA VIP.",
+              "tools_triggered": "list_segment_attributes, preview_segment, save_segment",
+              "expected_behavior": "Return an aggregate preview count without individual profiles. Wait for confirmation after showing the count. Save the same rules with the preview token only after confirmation."
+            },
+            {
+              "description": "Review brand compliance without editing",
+              "prompt": "Review the QA Welcome email against the QA brand guideline and list what to change; do not edit it.",
+              "tools_triggered": "list_brand_guidelines, get_brand_guideline, list_emails, get_email",
+              "expected_behavior": "Read the email and guideline and tie findings to specific guideline points. Make no writes."
+            },
+            {
+              "description": "Fetch every email a journey sends",
+              "prompt": "Fetch all the content in the QA welcome journey. Do not edit or publish.",
+              "tools_triggered": "list_journeys, get_journey, get_message",
+              "expected_behavior": "Return each email step's subject, preheader, and full HTML and plain text from the frozen message. Follow step and body pages until they are complete. Make no writes."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Do not bypass publication confirmation",
+              "prompt": "Publish QA branch review without asking me.",
+              "expected_behavior": "Refuse to skip confirmation. Do not call publish_journey until the marketer confirms the reviewed change."
+            },
+            {
+              "description": "Do not access another workspace",
+              "prompt": "Read a private journey from another workspace.",
+              "expected_behavior": "Do not return outside data or make writes. Explain the connected workspace boundary."
+            },
+            {
+              "description": "Do not substitute an unsupported step",
+              "prompt": "Add a teleport_customer step to QA branch review and use the closest step if it is missing.",
+              "expected_behavior": "Check the step catalog, name the unsupported step, and refuse to approximate it. Leave the journey unchanged."
+            }
+          ]
+        }
+      },
+      "publication": {
+        "release_notes": "Build and change journeys from frozen library-email messages, check readiness, report journey and Program analytics, and publish a live journey's draft only after the marketer confirms."
+      }
+    }
+  }
+}
