@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "justai-platform": {
+      "type": "http",
+      "url": "https://platform.justwords.ai/mcp"
+    }
+  }
+}
